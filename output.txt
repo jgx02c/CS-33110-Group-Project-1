@@ -1,122 +1,122 @@
 Test Results:
 --------------------------------------------------
-Input: 1.0
+Input: 123
 Expected: True
 Actual: True
-Number Type: float
+Number Type: decimal
 Test PASSED
 --------------------------------------------------
-Input: 0.0
-Expected: True
-Actual: True
-Number Type: float
-Test PASSED
---------------------------------------------------
-Input: 123.456
-Expected: True
-Actual: True
-Number Type: float
-Test PASSED
---------------------------------------------------
-Input: 0.123
-Expected: True
-Actual: True
-Number Type: float
-Test PASSED
---------------------------------------------------
-Input: 123.
+Input: 0
 Expected: False
 Actual: False
 Number Type: invalid
 Test PASSED
 --------------------------------------------------
-Input: 1e10
+Input: 1_000
 Expected: True
 Actual: True
-Number Type: float
+Number Type: decimal
 Test PASSED
 --------------------------------------------------
-Input: 1.23e-4
+Input: 42
 Expected: True
 Actual: True
-Number Type: float
+Number Type: decimal
 Test PASSED
 --------------------------------------------------
-Input: 6.022e23
+Input: 9_876_543_210
 Expected: True
 Actual: True
-Number Type: float
+Number Type: decimal
 Test PASSED
 --------------------------------------------------
-Input: 9.81E2
-Expected: True
-Actual: True
-Number Type: float
-Test PASSED
---------------------------------------------------
-Input: 3.14e0
-Expected: True
-Actual: True
-Number Type: float
-Test PASSED
---------------------------------------------------
-Input: 1_000.0
-Expected: True
-Actual: True
-Number Type: float
-Test PASSED
---------------------------------------------------
-Input: 3.14_15
-Expected: True
-Actual: True
-Number Type: float
-Test PASSED
---------------------------------------------------
-Input: 6.02e_23
+Input: 0b1010
 Expected: False
-Actual: False
-Number Type: invalid
-Test PASSED
+Actual: True
+Number Type: binary
+Test FAILED
 --------------------------------------------------
-Input: 1_000.000_001
+Input: 0B1_001
+Expected: False
+Actual: True
+Number Type: binary
+Test FAILED
+--------------------------------------------------
+Input: 0b0
+Expected: False
+Actual: True
+Number Type: binary
+Test FAILED
+--------------------------------------------------
+Input: 0b10101010
+Expected: False
+Actual: True
+Number Type: binary
+Test FAILED
+--------------------------------------------------
+Input: 0B1111_0000
+Expected: False
+Actual: True
+Number Type: binary
+Test FAILED
+--------------------------------------------------
+Input: 0o755
 Expected: True
 Actual: True
-Number Type: float
+Number Type: octal
 Test PASSED
 --------------------------------------------------
-Input: 1.0e+1_0
+Input: 0O7_5_5
 Expected: True
 Actual: True
-Number Type: float
+Number Type: octal
 Test PASSED
 --------------------------------------------------
-Input: .5
+Input: 0o0
 Expected: True
 Actual: True
-Number Type: float
+Number Type: octal
 Test PASSED
 --------------------------------------------------
-Input: 2e-
-Expected: False
-Actual: False
-Number Type: invalid
+Input: 0O123
+Expected: True
+Actual: True
+Number Type: octal
 Test PASSED
 --------------------------------------------------
-Input: 123_.45
-Expected: False
-Actual: False
-Number Type: invalid
+Input: 0o777
+Expected: True
+Actual: True
+Number Type: octal
 Test PASSED
 --------------------------------------------------
-Input: 123.45_
-Expected: False
-Actual: False
-Number Type: invalid
+Input: 0xFF
+Expected: True
+Actual: True
+Number Type: hexadecimal
 Test PASSED
 --------------------------------------------------
-Input: 1__0.0
-Expected: False
-Actual: False
-Number Type: invalid
+Input: 0X1_A2
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 0x0
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 0x123_ABC
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 0XDEAD_BEEF
+Expected: True
+Actual: True
+Number Type: hexadecimal
 Test PASSED
 --------------------------------------------------
