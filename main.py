@@ -3,10 +3,11 @@ import json
 
 class NFA:
     def __init__(self):
-        # States definitions
+        # States definitions - added new states for handling underscores
         self.states: Set[str] = {
             'start', 'zero', 'oct_x', 'oct_o', 'hex_x', 
             'dec_digit', 'oct_digit', 'hex_digit',
+            'dec_underscore', 'oct_underscore', 'hex_underscore',
             'accept_dec', 'accept_oct', 'accept_hex'
         }
         
@@ -35,30 +36,57 @@ class NFA:
                 **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
             },
             'dec_digit': {
+                '_': {'dec_underscore'},
                 **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
             },
             'oct_digit': {
+                '_': {'oct_underscore'},
                 **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
             },
             'hex_digit': {
+                '_': {'hex_underscore'},
+                **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
+            },
+            # Underscore states - must be followed by appropriate digits
+            'dec_underscore': {
+                **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
+            },
+            'oct_underscore': {
+                **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
+            },
+            'hex_underscore': {
                 **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
             },
             'accept_dec': {
+                '_': {'dec_underscore'},
                 **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
             },
             'accept_oct': {
+                '_': {'oct_underscore'},
                 **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
             },
             'accept_hex': {
+                '_': {'hex_underscore'},
                 **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
             }
         }
         
         # Accept states
         self.accept_states = {'accept_dec', 'accept_oct', 'accept_hex'}
-        
+
     def accepts(self, input_string: str) -> bool:
         """Check if the input string is accepted by the NFA."""
+        # Remove any whitespace
+        input_string = input_string.strip()
+        
+        # Special case: string cannot end with underscore
+        if input_string.endswith('_'):
+            return False
+            
+        # Special case: string cannot have two consecutive underscores
+        if '__' in input_string:
+            return False
+            
         current_states = {'start'}
         
         for char in input_string:
