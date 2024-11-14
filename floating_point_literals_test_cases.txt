@@ -16,7 +16,7 @@
 # Use of Underscores for Readability
 1_000.0         # Valid float with underscores in the integer part
 3.14_15         # Valid float with underscores in the fractional part
-6.02e_23        # Valid float with underscore before exponent (valid in Python)
+6.02e_23        # Valid float with underscore before exponent (false in Python)
 1_000.000_001   # Valid float with underscores in both integer and fractional parts
 1.0e+1_0        # Valid float with underscore in exponent (valid in Python)
 

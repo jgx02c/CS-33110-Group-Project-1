@@ -3,12 +3,17 @@ import json
 
 class NFA:
     def __init__(self):
-        # States definitions - added new states for handling underscores
+        # States definitions 
         self.states: Set[str] = {
+            # Integer states
             'start', 'zero', 'oct_x', 'oct_o', 'hex_x', 
             'dec_digit', 'oct_digit', 'hex_digit',
             'dec_underscore', 'oct_underscore', 'hex_underscore',
-            'accept_dec', 'accept_oct', 'accept_hex'
+            'accept_dec', 'accept_oct', 'accept_hex',
+            # Float states
+            'decimal_point', 'after_decimal', 'after_decimal_underscore',
+            'e_symbol', 'after_e', 'after_e_sign', 'after_e_digit',
+            'after_e_underscore', 'accept_float'
         }
         
         # Alphabet definitions
@@ -20,6 +25,7 @@ class NFA:
         self.transitions: Dict[str, Dict[str, Set[str]]] = {
             'start': {
                 '0': {'zero'},
+                '.': {'decimal_point'},
                 **{d: {'dec_digit', 'accept_dec'} for d in '123456789'}
             },
             'zero': {
@@ -27,6 +33,9 @@ class NFA:
                 'o': {'oct_o'},
                 'X': {'hex_x'},
                 'O': {'oct_o'},
+                '.': {'decimal_point'},
+                'e': {'e_symbol'},
+                'E': {'e_symbol'},
                 **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits},
             },
             'hex_x': {
@@ -37,6 +46,9 @@ class NFA:
             },
             'dec_digit': {
                 '_': {'dec_underscore'},
+                '.': {'decimal_point'},
+                'e': {'e_symbol'},
+                'E': {'e_symbol'},
                 **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
             },
             'oct_digit': {
@@ -47,7 +59,7 @@ class NFA:
                 '_': {'hex_underscore'},
                 **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
             },
-            # Underscore states - must be followed by appropriate digits
+            # Underscore states for integers
             'dec_underscore': {
                 **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
             },
@@ -57,8 +69,40 @@ class NFA:
             'hex_underscore': {
                 **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
             },
+            # Float-specific states
+            'decimal_point': {
+                **{d: {'after_decimal', 'accept_float'} for d in self.digits}
+            },
+            'after_decimal': {
+                '_': {'after_decimal_underscore'},
+                'e': {'e_symbol'},
+                'E': {'e_symbol'},
+                **{d: {'after_decimal', 'accept_float'} for d in self.digits}
+            },
+            'after_decimal_underscore': {
+                **{d: {'after_decimal', 'accept_float'} for d in self.digits}
+            },
+            'e_symbol': {
+                '+': {'after_e_sign'},
+                '-': {'after_e_sign'},
+                **{d: {'after_e_digit', 'accept_float'} for d in self.digits}
+            },
+            'after_e_sign': {
+                **{d: {'after_e_digit', 'accept_float'} for d in self.digits}
+            },
+            'after_e_digit': {
+                '_': {'after_e_underscore'},
+                **{d: {'after_e_digit', 'accept_float'} for d in self.digits}
+            },
+            'after_e_underscore': {
+                **{d: {'after_e_digit', 'accept_float'} for d in self.digits}
+            },
+            # Accept states transitions
             'accept_dec': {
                 '_': {'dec_underscore'},
+                '.': {'decimal_point'},
+                'e': {'e_symbol'},
+                'E': {'e_symbol'},
                 **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
             },
             'accept_oct': {
@@ -68,24 +112,35 @@ class NFA:
             'accept_hex': {
                 '_': {'hex_underscore'},
                 **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
+            },
+            'accept_float': {
+                '_': {'after_decimal_underscore'},
+                'e': {'e_symbol'},
+                'E': {'e_symbol'},
+                **{d: {'after_decimal', 'accept_float'} for d in self.digits}
             }
         }
         
         # Accept states
-        self.accept_states = {'accept_dec', 'accept_oct', 'accept_hex'}
+        self.accept_states = {'accept_dec', 'accept_oct', 'accept_hex', 'accept_float'}
 
-    def accepts(self, input_string: str) -> bool:
-        """Check if the input string is accepted by the NFA."""
+    def accepts(self, input_string: str) -> Tuple[bool, str]:
+        """
+        Check if the input string is accepted by the NFA.
+        Returns (is_accepted, number_type)
+        """
         # Remove any whitespace
         input_string = input_string.strip()
         
-        # Special case: string cannot end with underscore
+        # Special cases for invalid inputs
         if input_string.endswith('_'):
-            return False
-            
-        # Special case: string cannot have two consecutive underscores
+            return False, "invalid"
         if '__' in input_string:
-            return False
+            return False, "invalid"
+        if input_string.endswith('e') or input_string.endswith('E'):
+            return False, "invalid"
+        if input_string.endswith('+') or input_string.endswith('-'):
+            return False, "invalid"
             
         current_states = {'start'}
         
@@ -98,11 +153,24 @@ class NFA:
                             next_states.update(next_state_set)
             
             if not next_states:
-                return False
+                return False, "invalid"
             
             current_states = next_states
         
-        return any(state in self.accept_states for state in current_states)
+        # Determine the type of number
+        if not any(state in self.accept_states for state in current_states):
+            return False, "invalid"
+            
+        if 'accept_float' in current_states:
+            return True, "float"
+        elif 'accept_hex' in current_states:
+            return True, "hexadecimal"
+        elif 'accept_oct' in current_states:
+            return True, "octal"
+        elif 'accept_dec' in current_states:
+            return True, "decimal"
+        
+        return False, "invalid"
 
 def process_input_file(nfa: NFA, input_filename: str, output_filename: str):
     """Process input file and write results to output file."""
@@ -120,7 +188,7 @@ def process_input_file(nfa: NFA, input_filename: str, output_filename: str):
         expected = expected.lower() == 'true'
         
         # Get actual result
-        actual = nfa.accepts(test_string)
+        actual, number_type = nfa.accepts(test_string)
         
         # Compare results
         passed = actual == expected
@@ -129,6 +197,7 @@ def process_input_file(nfa: NFA, input_filename: str, output_filename: str):
             'test_string': test_string,
             'expected': expected,
             'actual': actual,
+            'number_type': number_type,
             'passed': passed
         })
     
@@ -140,6 +209,7 @@ def process_input_file(nfa: NFA, input_filename: str, output_filename: str):
             f.write(f"Input: {result['test_string']}\n")
             f.write(f"Expected: {result['expected']}\n")
             f.write(f"Actual: {result['actual']}\n")
+            f.write(f"Number Type: {result['number_type']}\n")
             f.write(f"Test {'PASSED' if result['passed'] else 'FAILED'}\n")
             f.write("-" * 50 + "\n")
 
@@ -147,7 +217,7 @@ def main():
     nfa = NFA()
     
     while True:
-        print("\nPython Integer Literal Recognizer")
+        print("\nPython Number Literal Recognizer")
         print("1. Test single input")
         print("2. Process test file")
         print("3. Exit")
@@ -156,8 +226,8 @@ def main():
         
         if choice == '1':
             test_string = input("Enter a string to test: ")
-            result = nfa.accepts(test_string)
-            print(f"Result: {result} ({'valid' if result else 'invalid'} Python integer literal)")
+            result, number_type = nfa.accepts(test_string)
+            print(f"Result: {result} ({number_type} Python number literal)")
             
         elif choice == '2':
             input_file = input("Enter input filename (default: in_ans.txt): ").strip() or "in_ans.txt"
