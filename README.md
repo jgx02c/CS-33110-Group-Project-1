@@ -74,6 +74,6 @@ Once the application downloaded, you can interact with it by following these ste
    - Input whether or not you wish to run a single test case or multiple using an input file
    - List your input and output file
 
-3. **Find your test file and review declarations** (if the project includes a web server or API):
+3. **Find your test file and review declarations**:
    - Open your test file you input into the terminal
    - Inside should list all of the test cases and their appropriate results
