@@ -162,6 +162,11 @@
 			<read>0</read>&#13;
 		</transition>&#13;
 		<transition>&#13;
+			<from>8</from>&#13;
+			<to>8</to>&#13;
+			<read>0</read>&#13;
+		</transition>&#13;
+		<transition>&#13;
 			<from>11</from>&#13;
 			<to>11</to>&#13;
 			<read>1</read>&#13;
@@ -174,6 +179,11 @@
 		<transition>&#13;
 			<from>16</from>&#13;
 			<to>16</to>&#13;
+			<read>1</read>&#13;
+		</transition>&#13;
+		<transition>&#13;
+			<from>8</from>&#13;
+			<to>8</to>&#13;
 			<read>1</read>&#13;
 		</transition>&#13;
 		<transition>&#13;
