@@ -118,7 +118,7 @@ Once the application downloaded, you can interact with it by following these ste
 - Actual: True
 - Number Type: decimal
 - Test PASSED
---------------------------------------------------
+
 
 ### Binary Notation:
 --------------------------------------------------
@@ -151,7 +151,7 @@ Once the application downloaded, you can interact with it by following these ste
 - Actual: True
 - Number Type: binary
 - Test PASSED
---------------------------------------------------
+
 
 ### Octal Notation:
 --------------------------------------------------
@@ -184,7 +184,7 @@ Once the application downloaded, you can interact with it by following these ste
 - Actual: True
 - Number Type: octal
 - Test PASSED
---------------------------------------------------
+
 
 ### Hexadecimal Notation
 --------------------------------------------------
