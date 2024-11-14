@@ -65,29 +65,15 @@ To set up this project on your local machine, follow these steps:
 
 ## Usage
 
-Once the application is set up, you can interact with it by following these steps:
+Once the application downloaded, you can interact with it by following these steps:
 
-1. **Run Program** (if applicable):
-   ```bash
-   source venv/bin/activate  # On macOS/Linux
-   .\venv\Scripts\activate   # On Windows
-   ```
+1. **Run Program**:
+   - Find the program and run it
 
-2. **Run the application**:
-   ```bash
-   python main.py
-   ```
+2. **Input necessary requirements**:
+   - Input whether or not you wish to run a single test case or multiple using an input file
+   - List your input and output file
 
-3. **Access API Endpoints** (if the project includes a web server or API):
-   - By default, the API can be accessed at `http://localhost:5000`.
-   - Use tools like **Postman** or **curl** to interact with the endpoints.
-   
-4. **Run Unit Tests** (if applicable):
-   ```bash
-   python -m unittest discover tests
-   ```
-
-5. **Common Commands**:
-   - **Start Development Server**: `python main.py`
-   - **Lint Code**: `flake8 .` or `pylint <filename>`
-   - **Run Tests**: `pytest` or `python -m unittest`
+3. **Find your test file and review declarations** (if the project includes a web server or API):
+   - Open your test file you input into the terminal
+   - Inside should list all of the test cases and their appropriate results
