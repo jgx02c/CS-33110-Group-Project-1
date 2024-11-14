@@ -83,23 +83,23 @@ Once the application downloaded, you can interact with it by following these ste
 ## Test Results
 
 --------------------------------------------------
-Input: 123
-Expected: True
-Actual: True
-Number Type: decimal
-Test PASSED
+- Input: 123
+- Expected: True
+- Actual: True
+- Number Type: decimal
+- Test PASSED
 --------------------------------------------------
-Input: 0
-Expected: False
-Actual: False
-Number Type: invalid
-Test PASSED
+- Input: 0
+- Expected: False
+- Actual: False
+- Number Type: invalid
+- Test PASSED
 --------------------------------------------------
-Input: 1_000
-Expected: True
-Actual: True
-Number Type: decimal
-Test PASSED
+- Input: 1_000
+- Expected: True
+- Actual: True
+- Number Type: decimal
+- Test PASSED
 --------------------------------------------------
 Input: 42
 Expected: True
