@@ -1,7 +1,7 @@
 
 # Project Title
 
-Welcome to the **[Python Numerical Literal Checker]** repository! This project, developed as part of our course, implements a program to check all defined literals in Python. Below, you'll find information on our group members, features developed, code versions, and more.
+Welcome to the **Python Numerical Literal Checker** repository! This project, developed as part of our course, implements a program to check all defined literals in Python. Below, you'll find information on our group members, features developed, code versions, and more.
 
 ## Table of Contents
 
@@ -17,8 +17,8 @@ Welcome to the **[Python Numerical Literal Checker]** repository! This project, 
 
 | Name                 | GitHub Username     | Tasks Completed                                                                                 | Extra Credit Tasks                          |
 |----------------------|---------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------|
-| **[Joshua Goodman]**    | [jgx02c]   | - Created the program and test cases |
-| **[Mason Orton]**    | [MasonAsemi]   | - Created the NFA's and JFLAP files |
+| **Joshua Goodman**    | jgx02c  | - Created the program and test cases |
+| **Mason Orton**    | MasonAsemi   | - Created the NFA's and JFLAP files |
 
 ---
 
@@ -26,11 +26,8 @@ Welcome to the **[Python Numerical Literal Checker]** repository! This project, 
 
 This project includes the following features:
 
-- **Authentication**: Secure user login, registration, and session management.
-- **CRUD Operations**: Complete CRUD functionality for managing [entity types, e.g., tasks, posts, etc.].
-- **Responsive Design**: Adaptable UI for various devices and screen sizes.
-- **Error Handling**: Comprehensive error handling and logging throughout the app.
-- **Performance Optimizations**: Efficient handling of database queries and code to ensure a smooth user experience.
+- **Integer literal checking**: Check if a number is a valid integer literal
+- **Floating point literal checking**: Check if a number is a valid floating point literal
 
 ---
 
@@ -51,12 +48,12 @@ To set up this project on your local machine, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/jgx02c/CS-33110-Group-Project-1.git
    ```
 
 2. **Navigate to the project directory**:
    ```bash
-   cd your-repo-name
+   cd CS-33110-Group-Project-1
    ```
 
 3. **Install dependencies**:
