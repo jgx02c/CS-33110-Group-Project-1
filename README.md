@@ -10,6 +10,7 @@ Welcome to the **Python Numerical Literal Checker w/ Floating Point Literal Chec
 - [Code Versions](#code-versions)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
+- [Test Results](#test-results)
 
 ---
 
@@ -78,18 +79,127 @@ Once the application downloaded, you can interact with it by following these ste
    - Open your test file you input into the terminal
    - Inside should list all of the test cases and their appropriate results
 
-4. **Example file output**:
-   - Test Results:
-      --------------------------------------------------
-      Input: 123
-      Expected: True
-      Actual: True
-      Number Type: decimal
-      Test PASSED
-      --------------------------------------------------
-      Input: 0
-      Expected: False
-      Actual: False
-      Number Type: invalid
-      Test PASSED
-      --------------------------------------------------
+
+## Test Results
+
+--------------------------------------------------
+Input: 123
+Expected: True
+Actual: True
+Number Type: decimal
+Test PASSED
+--------------------------------------------------
+Input: 0
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 1_000
+Expected: True
+Actual: True
+Number Type: decimal
+Test PASSED
+--------------------------------------------------
+Input: 42
+Expected: True
+Actual: True
+Number Type: decimal
+Test PASSED
+--------------------------------------------------
+Input: 9_876_543_210
+Expected: True
+Actual: True
+Number Type: decimal
+Test PASSED
+--------------------------------------------------
+Input: 0b1010
+Expected: True
+Actual: True
+Number Type: binary
+Test PASSED
+--------------------------------------------------
+Input: 0B1_001
+Expected: True
+Actual: True
+Number Type: binary
+Test PASSED
+--------------------------------------------------
+Input: 0b0
+Expected: True
+Actual: True
+Number Type: binary
+Test PASSED
+--------------------------------------------------
+Input: 0b10101010
+Expected: True
+Actual: True
+Number Type: binary
+Test PASSED
+--------------------------------------------------
+Input: 0B1111_0000
+Expected: True
+Actual: True
+Number Type: binary
+Test PASSED
+--------------------------------------------------
+Input: 0o755
+Expected: True
+Actual: True
+Number Type: octal
+Test PASSED
+--------------------------------------------------
+Input: 0O7_5_5
+Expected: True
+Actual: True
+Number Type: octal
+Test PASSED
+--------------------------------------------------
+Input: 0o0
+Expected: True
+Actual: True
+Number Type: octal
+Test PASSED
+--------------------------------------------------
+Input: 0O123
+Expected: True
+Actual: True
+Number Type: octal
+Test PASSED
+--------------------------------------------------
+Input: 0o777
+Expected: True
+Actual: True
+Number Type: octal
+Test PASSED
+--------------------------------------------------
+Input: 0xFF
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 0X1_A2
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 0x0
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 0x123_ABC
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 0XDEAD_BEEF
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
