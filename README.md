@@ -82,7 +82,7 @@ Once the application downloaded, you can interact with it by following these ste
 
 ## Test Results
 
-### Decimal Notation
+### Decimal Notation:
 --------------------------------------------------
 - Input: 123
 - Expected: True
@@ -115,8 +115,8 @@ Once the application downloaded, you can interact with it by following these ste
 - Test PASSED
 --------------------------------------------------
 
-### Binary Notation
-
+### Binary Notation:
+--------------------------------------------------
 - Input: 0b1010
 - Expected: True
 - Actual: True
@@ -148,7 +148,8 @@ Once the application downloaded, you can interact with it by following these ste
 - Test PASSED
 --------------------------------------------------
 
-### Octal Notation
+### Octal Notation:
+--------------------------------------------------
 - Input: 0o755
 - Expected: True
 - Actual: True
@@ -181,6 +182,7 @@ Once the application downloaded, you can interact with it by following these ste
 --------------------------------------------------
 
 ### Hexadecimal Notation
+--------------------------------------------------
 - Input: 0xFF
 - Expected: True
 - Actual: True
