@@ -1,7 +1,7 @@
 
-# Project Title
+# Python Numerial Literaly Checker w/ Floating Point Literal Checker
 
-Welcome to the **Python Numerical Literal Checker** repository! This project, developed as part of our course, implements a program to check all defined literals in Python. Below, you'll find information on our group members, features developed, code versions, and more.
+Welcome to the **Python Numerical Literal Checker w/ Floating Point Literal Checker** repository! This project, developed as part of our course, implements a program to check all defined literals in Python. Below, you'll find information on our group members, features developed, code versions, and more.
 
 ## Table of Contents
 
