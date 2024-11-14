@@ -1,0 +1,28 @@
+
+# Standard Decimal Integers
+123             # Valid simple integer
+0               # Valid zero integer
+1_000           # Valid integer with underscores for readability
+42              # Valid integer without underscores
+9_876_543_210   # Valid large integer with underscores for readability
+
+# Binary Integers
+0b1010          # Valid binary integer
+0B1_001         # Valid binary integer with underscores
+0b0             # Valid binary zero
+0b10101010      # Valid binary integer without underscores
+0B1111_0000     # Valid binary integer with underscores
+
+# Octal Integers
+0o755           # Valid octal integer
+0O7_5_5         # Valid octal integer with underscores
+0o0             # Valid octal zero
+0O123           # Valid octal integer without underscores
+0o777           # Valid max octal value
+
+# Hexadecimal Integers
+0xFF            # Valid hexadecimal integer
+0X1_A2          # Valid hexadecimal integer with underscores
+0x0             # Valid hexadecimal zero
+0x123_ABC       # Valid hexadecimal integer with underscores
+0XDEAD_BEEF     # Valid hexadecimal integer with underscores
