@@ -67,7 +67,7 @@ To set up this project on your local machine, follow these steps:
 
 Once the application is set up, you can interact with it by following these steps:
 
-1. **Activate the virtual environment** (if applicable):
+1. **Run Program** (if applicable):
    ```bash
    source venv/bin/activate  # On macOS/Linux
    .\venv\Scripts\activate   # On Windows
