@@ -1,0 +1,122 @@
+Test Results:
+--------------------------------------------------
+Input: 1.0
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 0.0
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 123.456
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 0.123
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 123.
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 1e10
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 1.23e-4
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 6.022e23
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 9.81E2
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 3.14e0
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 1_000.0
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 3.14_15
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 6.02e_23
+Expected: True
+Actual: False
+Number Type: invalid
+Test FAILED
+--------------------------------------------------
+Input: 1_000.000_001
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 1.0e+1_0
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: .5
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 2e-
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 123_.45
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 123.45_
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 1__0.0
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
