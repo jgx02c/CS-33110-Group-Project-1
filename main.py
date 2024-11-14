@@ -200,6 +200,7 @@ def process_input_file(nfa: NFA, input_filename: str, output_filename: str):
     # Make sure the file exists in the same directory as the script
     script_dir = Path(__file__).parent  # Get the script's directory
     file_path = script_dir / input_filename  # Create the full file path
+    output_file_path = script_dir / output_filename # Create the full path for the output file
 
     # Check if the file exists and then open it
     if file_path.exists():
@@ -230,8 +231,8 @@ def process_input_file(nfa: NFA, input_filename: str, output_filename: str):
             'passed': passed
         })
     
-    # Write results to output file
-    with open(output_filename, 'w') as f:
+   # Write results to the output file
+    with open(output_file_path, 'w') as f:
         f.write("Test Results:\n")
         f.write("-" * 50 + "\n")
         for result in results:

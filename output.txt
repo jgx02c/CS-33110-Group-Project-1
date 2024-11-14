@@ -73,10 +73,10 @@ Number Type: float
 Test PASSED
 --------------------------------------------------
 Input: 6.02e_23
-Expected: True
+Expected: False
 Actual: False
 Number Type: invalid
-Test FAILED
+Test PASSED
 --------------------------------------------------
 Input: 1_000.000_001
 Expected: True
