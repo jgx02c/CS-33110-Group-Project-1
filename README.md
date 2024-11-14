@@ -82,6 +82,7 @@ Once the application downloaded, you can interact with it by following these ste
 
 ## Test Results
 
+# Decimal Notation
 --------------------------------------------------
 - Input: 123
 - Expected: True
@@ -101,105 +102,108 @@ Once the application downloaded, you can interact with it by following these ste
 - Number Type: decimal
 - Test PASSED
 --------------------------------------------------
-Input: 42
-Expected: True
-Actual: True
-Number Type: decimal
-Test PASSED
+- Input: 42
+- Expected: True
+- Actual: True
+- Number Type: decimal
+- Test PASSED
 --------------------------------------------------
-Input: 9_876_543_210
-Expected: True
-Actual: True
-Number Type: decimal
-Test PASSED
+- Input: 9_876_543_210
+- Expected: True
+- Actual: True
+- Number Type: decimal
+- Test PASSED
 --------------------------------------------------
-Input: 0b1010
-Expected: True
-Actual: True
-Number Type: binary
-Test PASSED
+
+# Binary Notation
 --------------------------------------------------
-Input: 0B1_001
-Expected: True
-Actual: True
-Number Type: binary
-Test PASSED
+- Input: 0b1010
+- Expected: True
+- Actual: True
+- Number Type: binary
+- Test PASSED
 --------------------------------------------------
-Input: 0b0
-Expected: True
-Actual: True
-Number Type: binary
-Test PASSED
+- Input: 0B1_001
+- Expected: True
+- Actual: True
+- Number Type: binary
+- Test PASSED
 --------------------------------------------------
-Input: 0b10101010
-Expected: True
-Actual: True
-Number Type: binary
-Test PASSED
+- Input: 0b0
+- Expected: True
+- Actual: True
+- Number Type: binary
+- Test PASSED
 --------------------------------------------------
-Input: 0B1111_0000
-Expected: True
-Actual: True
-Number Type: binary
-Test PASSED
+- Input: 0b10101010
+- Expected: True
+- Actual: True
+- Number Type: binary
+- Test PASSED
 --------------------------------------------------
-Input: 0o755
-Expected: True
-Actual: True
-Number Type: octal
-Test PASSED
+- Input: 0B1111_0000
+- Expected: True
+- Actual: True
+- Number Type: binary
+- Test PASSED
 --------------------------------------------------
-Input: 0O7_5_5
-Expected: True
-Actual: True
-Number Type: octal
-Test PASSED
+- Input: 0o755
+- Expected: True
+- Actual: True
+- Number Type: octal
+- Test PASSED
 --------------------------------------------------
-Input: 0o0
-Expected: True
-Actual: True
-Number Type: octal
-Test PASSED
+- Input: 0O7_5_5
+- Expected: True
+- Actual: True
+- Number Type: octal
+- Test PASSED
 --------------------------------------------------
-Input: 0O123
-Expected: True
-Actual: True
-Number Type: octal
-Test PASSED
+- Input: 0o0
+- Expected: True
+- Actual: True
+- Number Type: octal
+- Test PASSED
 --------------------------------------------------
-Input: 0o777
-Expected: True
-Actual: True
-Number Type: octal
-Test PASSED
+- Input: 0O123
+- Expected: True
+- Actual: True
+- Number Type: octal
+- Test PASSED
 --------------------------------------------------
-Input: 0xFF
-Expected: True
-Actual: True
-Number Type: hexadecimal
-Test PASSED
+- Input: 0o777
+- Expected: True
+- Actual: True
+- Number Type: octal
+- Test PASSED
 --------------------------------------------------
-Input: 0X1_A2
-Expected: True
-Actual: True
-Number Type: hexadecimal
-Test PASSED
+- Input: 0xFF
+- Expected: True
+- Actual: True
+- Number Type: hexadecimal
+- Test PASSED
 --------------------------------------------------
-Input: 0x0
-Expected: True
-Actual: True
-Number Type: hexadecimal
-Test PASSED
+- Input: 0X1_A2
+- Expected: True
+- Actual: True
+- Number Type: hexadecimal
+- Test PASSED
 --------------------------------------------------
-Input: 0x123_ABC
-Expected: True
-Actual: True
-Number Type: hexadecimal
-Test PASSED
+- Input: 0x0
+- Expected: True
+- Actual: True
+- Number Type: hexadecimal
+- Test PASSED
 --------------------------------------------------
-Input: 0XDEAD_BEEF
-Expected: True
-Actual: True
-Number Type: hexadecimal
-Test PASSED
+- Input: 0x123_ABC
+- Expected: True
+- Actual: True
+- Number Type: hexadecimal
+- Test PASSED
+--------------------------------------------------
+- Input: 0XDEAD_BEEF
+- Expected: True
+- Actual: True
+- Number Type: hexadecimal
+- Test PASSED
 --------------------------------------------------
