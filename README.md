@@ -77,3 +77,19 @@ Once the application downloaded, you can interact with it by following these ste
 3. **Find your test file and review declarations**:
    - Open your test file you input into the terminal
    - Inside should list all of the test cases and their appropriate results
+
+4. **Example file output**:
+   - Test Results:
+      --------------------------------------------------
+      Input: 123
+      Expected: True
+      Actual: True
+      Number Type: decimal
+      Test PASSED
+      --------------------------------------------------
+      Input: 0
+      Expected: False
+      Actual: False
+      Number Type: invalid
+      Test PASSED
+      --------------------------------------------------
