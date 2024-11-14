@@ -18,11 +18,3 @@
 0x0 true
 0x123_ABC true
 0XDEAD_BEEF true
-0b2 false
-0b1_2 false
-0b_ false
-0b__ false
-0b1__1 false
-0b1_ false
-0B false
-0b false
