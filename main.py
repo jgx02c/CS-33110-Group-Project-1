@@ -1,15 +1,16 @@
 from typing import List, Set, Dict, Tuple
 import json
+from pathlib import Path
 
 class NFA:
     def __init__(self):
         # States definitions 
         self.states: Set[str] = {
             # Integer states
-            'start', 'zero', 'oct_x', 'oct_o', 'hex_x', 
-            'dec_digit', 'oct_digit', 'hex_digit',
-            'dec_underscore', 'oct_underscore', 'hex_underscore',
-            'accept_dec', 'accept_oct', 'accept_hex',
+            'start', 'zero', 'oct_x', 'oct_o', 'hex_x', 'bin_b',
+            'dec_digit', 'oct_digit', 'hex_digit', 'bin_digit',
+            'dec_underscore', 'oct_underscore', 'hex_underscore', 'bin_underscore',
+            'accept_dec', 'accept_oct', 'accept_hex', 'accept_bin',
             # Float states
             'decimal_point', 'after_decimal', 'after_decimal_underscore',
             'e_symbol', 'after_e', 'after_e_sign', 'after_e_digit',
@@ -20,6 +21,7 @@ class NFA:
         self.digits = set('0123456789')
         self.oct_digits = set('01234567')
         self.hex_digits = set('0123456789abcdefABCDEF')
+        self.bin_digits = set('01')
         
         # Transition function
         self.transitions: Dict[str, Dict[str, Set[str]]] = {
@@ -31,19 +33,49 @@ class NFA:
             'zero': {
                 'x': {'hex_x'},
                 'o': {'oct_o'},
+                'b': {'bin_b'},
                 'X': {'hex_x'},
                 'O': {'oct_o'},
+                'B': {'bin_b'},
                 '.': {'decimal_point'},
                 'e': {'e_symbol'},
                 'E': {'e_symbol'},
                 **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits},
             },
+            # Binary number states
+            'bin_b': {
+                **{d: {'bin_digit', 'accept_bin'} for d in self.bin_digits}
+            },
+            'bin_digit': {
+                '_': {'bin_underscore'},
+                **{d: {'bin_digit', 'accept_bin'} for d in self.bin_digits}
+            },
+            'bin_underscore': {
+                **{d: {'bin_digit', 'accept_bin'} for d in self.bin_digits}
+            },
+            # Hex states
             'hex_x': {
                 **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
             },
+            'hex_digit': {
+                '_': {'hex_underscore'},
+                **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
+            },
+            'hex_underscore': {
+                **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
+            },
+            # Octal states
             'oct_o': {
                 **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
             },
+            'oct_digit': {
+                '_': {'oct_underscore'},
+                **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
+            },
+            'oct_underscore': {
+                **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
+            },
+            # Decimal states
             'dec_digit': {
                 '_': {'dec_underscore'},
                 '.': {'decimal_point'},
@@ -51,25 +83,10 @@ class NFA:
                 'E': {'e_symbol'},
                 **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
             },
-            'oct_digit': {
-                '_': {'oct_underscore'},
-                **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
-            },
-            'hex_digit': {
-                '_': {'hex_underscore'},
-                **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
-            },
-            # Underscore states for integers
             'dec_underscore': {
                 **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
             },
-            'oct_underscore': {
-                **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
-            },
-            'hex_underscore': {
-                **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
-            },
-            # Float-specific states
+            # Float states
             'decimal_point': {
                 **{d: {'after_decimal', 'accept_float'} for d in self.digits}
             },
@@ -113,6 +130,10 @@ class NFA:
                 '_': {'hex_underscore'},
                 **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
             },
+            'accept_bin': {
+                '_': {'bin_underscore'},
+                **{d: {'bin_digit', 'accept_bin'} for d in self.bin_digits}
+            },
             'accept_float': {
                 '_': {'after_decimal_underscore'},
                 'e': {'e_symbol'},
@@ -122,7 +143,7 @@ class NFA:
         }
         
         # Accept states
-        self.accept_states = {'accept_dec', 'accept_oct', 'accept_hex', 'accept_float'}
+        self.accept_states = {'accept_dec', 'accept_oct', 'accept_hex', 'accept_bin', 'accept_float'}
 
     def accepts(self, input_string: str) -> Tuple[bool, str]:
         """
@@ -167,6 +188,8 @@ class NFA:
             return True, "hexadecimal"
         elif 'accept_oct' in current_states:
             return True, "octal"
+        elif 'accept_bin' in current_states:
+            return True, "binary"
         elif 'accept_dec' in current_states:
             return True, "decimal"
         
@@ -174,8 +197,14 @@ class NFA:
 
 def process_input_file(nfa: NFA, input_filename: str, output_filename: str):
     """Process input file and write results to output file."""
-    with open(input_filename, 'r') as f:
-        lines = f.readlines()
+    # Make sure the file exists in the same directory as the script
+    script_dir = Path(__file__).parent  # Get the script's directory
+    file_path = script_dir / input_filename  # Create the full file path
+
+    # Check if the file exists and then open it
+    if file_path.exists():
+        with file_path.open('r') as f:
+            lines = f.readlines()
     
     results = []
     for line in lines:
