@@ -56,15 +56,7 @@ To set up this project on your local machine, follow these steps:
    cd CS-33110-Group-Project-1
    ```
 
-3. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Set up environment variables**: 
-   - Rename `.env.example` to `.env` and fill in the necessary details.
-
-5. **Run the application**:
+3. **Run the application**:
    ```bash
    python main.py
    ```
