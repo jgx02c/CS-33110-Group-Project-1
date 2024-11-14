@@ -1,5 +1,5 @@
 
-# Python Numerial Literaly Checker w/ Floating Point Literal Checker
+# Python Numerial Literal Checker w/ Floating Point Literal Checker
 
 Welcome to the **Python Numerical Literal Checker w/ Floating Point Literal Checker** repository! This project, developed as part of our course, implements a program to check all defined literals in Python. Below, you'll find information on our group members, features developed, code versions, and more.
 
@@ -18,8 +18,8 @@ Welcome to the **Python Numerical Literal Checker w/ Floating Point Literal Chec
 
 | Name                 | GitHub Username     | Tasks Completed                                                                                 | Extra Credit Tasks                          |
 |----------------------|---------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------|
-| **Joshua Goodman**    | jgx02c  | - Created the program and test cases |
-| **Mason Orton**    | MasonAsemi   | - Created the NFA's and JFLAP files |
+| **Joshua Goodman**    | jgx02c  | - Created the program and test cases |  - Created the program and test cases for the floating point literals |
+| **Mason Orton**    | MasonAsemi   | - Created the NFA's and JFLAP files |  - Created the NFA and JFLAP for the floating point literals |
 
 ---
 
