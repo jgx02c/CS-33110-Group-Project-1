@@ -69,11 +69,16 @@ To set up this project on your local machine, follow these steps:
 Once the application downloaded, you can interact with it by following these steps:
 
 1. **Run Program**:
-   - Find the program and run it
+   - Run the program in the folder. 
 
 2. **Input necessary requirements**:
    - Input whether or not you wish to run a single test case or multiple using an input file
    - List your input and output file
+
+   The input files follow the format shown in the example string, with the expected output appearing after it, such as:
+    ```0O7_5_5 true```
+
+   **Note: testOne.txt maatches the output file outputOne.txt as testTwo.txt matches the output file outputTwo.txt**
 
 3. **Find your test file and review declarations**:
    - Open your test file you input into the terminal
