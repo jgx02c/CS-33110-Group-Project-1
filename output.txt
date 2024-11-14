@@ -31,34 +31,34 @@ Number Type: decimal
 Test PASSED
 --------------------------------------------------
 Input: 0b1010
-Expected: False
+Expected: True
 Actual: True
 Number Type: binary
-Test FAILED
+Test PASSED
 --------------------------------------------------
 Input: 0B1_001
-Expected: False
+Expected: True
 Actual: True
 Number Type: binary
-Test FAILED
+Test PASSED
 --------------------------------------------------
 Input: 0b0
-Expected: False
+Expected: True
 Actual: True
 Number Type: binary
-Test FAILED
+Test PASSED
 --------------------------------------------------
 Input: 0b10101010
-Expected: False
+Expected: True
 Actual: True
 Number Type: binary
-Test FAILED
+Test PASSED
 --------------------------------------------------
 Input: 0B1111_0000
-Expected: False
+Expected: True
 Actual: True
 Number Type: binary
-Test FAILED
+Test PASSED
 --------------------------------------------------
 Input: 0o755
 Expected: True

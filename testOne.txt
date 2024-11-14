@@ -3,11 +3,11 @@
 1_000 true
 42 true
 9_876_543_210 true
-0b1010 false
-0B1_001 false
-0b0 false
-0b10101010 false
-0B1111_0000 false
+0b1010 true
+0B1_001 true
+0b0 true
+0b10101010 true
+0B1111_0000 true
 0o755 true
 0O7_5_5 true
 0o0 true
