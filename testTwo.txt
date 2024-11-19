@@ -2,7 +2,7 @@
 0.0 true
 123.456 true
 0.123 true
-123. false
+123. true
 1e10 true
 1.23e-4 true
 6.022e23 true

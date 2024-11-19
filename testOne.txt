@@ -1,5 +1,5 @@
 123 true
-0 false
+0 true
 1_000 true
 42 true
 9_876_543_210 true
