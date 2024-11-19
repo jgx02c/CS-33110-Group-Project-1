@@ -7,9 +7,9 @@ Number Type: decimal
 Test PASSED
 --------------------------------------------------
 Input: 0
-Expected: False
-Actual: False
-Number Type: invalid
+Expected: True
+Actual: True
+Number Type: decimal
 Test PASSED
 --------------------------------------------------
 Input: 1_000
