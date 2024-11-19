@@ -26,7 +26,7 @@ class NFA:
         # Transition function
         self.transitions: Dict[str, Dict[str, Set[str]]] = {
             'start': {
-                '0': {'zero'},
+                '0': {'zero', 'accept_dec'},
                 '.': {'decimal_point'},
                 **{d: {'dec_digit', 'accept_dec'} for d in '123456789'}
             },
@@ -37,24 +37,14 @@ class NFA:
                 'X': {'hex_x'},
                 'O': {'oct_o'},
                 'B': {'bin_b'},
-                '.': {'decimal_point'},
+                '.': {'decimal_point', 'accept_float'},  # Modified to accept float
                 'e': {'e_symbol'},
                 'E': {'e_symbol'},
+                '_': {'dec_underscore'},
                 **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits},
             },
-            # Binary number states
-            'bin_b': {
-                **{d: {'bin_digit', 'accept_bin'} for d in self.bin_digits}
-            },
-            'bin_digit': {
-                '_': {'bin_underscore'},
-                **{d: {'bin_digit', 'accept_bin'} for d in self.bin_digits}
-            },
-            'bin_underscore': {
-                **{d: {'bin_digit', 'accept_bin'} for d in self.bin_digits}
-            },
-            # Hex states
             'hex_x': {
+                '_': {'hex_underscore'},
                 **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
             },
             'hex_digit': {
@@ -64,8 +54,8 @@ class NFA:
             'hex_underscore': {
                 **{d: {'hex_digit', 'accept_hex'} for d in self.hex_digits}
             },
-            # Octal states
             'oct_o': {
+                '_': {'oct_underscore'},
                 **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
             },
             'oct_digit': {
@@ -75,10 +65,20 @@ class NFA:
             'oct_underscore': {
                 **{d: {'oct_digit', 'accept_oct'} for d in self.oct_digits}
             },
-            # Decimal states
+            'bin_b': {
+                '_': {'bin_underscore'},
+                **{d: {'bin_digit', 'accept_bin'} for d in self.bin_digits}
+            },
+            'bin_digit': {
+                '_': {'bin_underscore'},
+                **{d: {'bin_digit', 'accept_bin'} for d in self.bin_digits}
+            },
+            'bin_underscore': {
+                **{d: {'bin_digit', 'accept_bin'} for d in self.bin_digits}
+            },
             'dec_digit': {
                 '_': {'dec_underscore'},
-                '.': {'decimal_point'},
+                '.': {'decimal_point', 'accept_float'},  # Modified to accept float
                 'e': {'e_symbol'},
                 'E': {'e_symbol'},
                 **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
@@ -86,7 +86,6 @@ class NFA:
             'dec_underscore': {
                 **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
             },
-            # Float states
             'decimal_point': {
                 **{d: {'after_decimal', 'accept_float'} for d in self.digits}
             },
@@ -114,10 +113,9 @@ class NFA:
             'after_e_underscore': {
                 **{d: {'after_e_digit', 'accept_float'} for d in self.digits}
             },
-            # Accept states transitions
             'accept_dec': {
                 '_': {'dec_underscore'},
-                '.': {'decimal_point'},
+                '.': {'decimal_point', 'accept_float'},  # Modified to accept float
                 'e': {'e_symbol'},
                 'E': {'e_symbol'},
                 **{d: {'dec_digit', 'accept_dec'} for d in self.digits}
@@ -143,7 +141,7 @@ class NFA:
         }
         
         # Accept states
-        self.accept_states = {'accept_dec', 'accept_oct', 'accept_hex', 'accept_bin', 'accept_float'}
+        self.accept_states = {'accept_dec', 'accept_oct', 'accept_hex', 'accept_bin', 'accept_float', 'zero'}
 
     def accepts(self, input_string: str) -> Tuple[bool, str]:
         """
@@ -182,7 +180,7 @@ class NFA:
         if not any(state in self.accept_states for state in current_states):
             return False, "invalid"
             
-        if 'accept_float' in current_states:
+        if 'accept_float' in current_states or 'decimal_point' in current_states:  # Modified to accept decimal_point
             return True, "float"
         elif 'accept_hex' in current_states:
             return True, "hexadecimal"
@@ -190,7 +188,7 @@ class NFA:
             return True, "octal"
         elif 'accept_bin' in current_states:
             return True, "binary"
-        elif 'accept_dec' in current_states:
+        elif 'accept_dec' in current_states or 'zero' in current_states:
             return True, "decimal"
         
         return False, "invalid"
