@@ -1,0 +1,296 @@
+Test Results:
+--------------------------------------------------
+Input: 42
+Expected: True
+Actual: True
+Number Type: decimal
+Test PASSED
+--------------------------------------------------
+Input: -17
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 0
+Expected: True
+Actual: True
+Number Type: decimal
+Test PASSED
+--------------------------------------------------
+Input: 0b1010
+Expected: True
+Actual: True
+Number Type: binary
+Test PASSED
+--------------------------------------------------
+Input: 0B1111
+Expected: True
+Actual: True
+Number Type: binary
+Test PASSED
+--------------------------------------------------
+Input: -0b1010
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 0b0
+Expected: True
+Actual: True
+Number Type: binary
+Test PASSED
+--------------------------------------------------
+Input: 0o777
+Expected: True
+Actual: True
+Number Type: octal
+Test PASSED
+--------------------------------------------------
+Input: 0O123
+Expected: True
+Actual: True
+Number Type: octal
+Test PASSED
+--------------------------------------------------
+Input: -0o777
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 0o0
+Expected: True
+Actual: True
+Number Type: octal
+Test PASSED
+--------------------------------------------------
+Input: 0xFF
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 0xff
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 0XFF
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: -0xFF
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 0x0
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 1_000_000
+Expected: True
+Actual: True
+Number Type: decimal
+Test PASSED
+--------------------------------------------------
+Input: 0xFF_FF_FF
+Expected: True
+Actual: True
+Number Type: hexadecimal
+Test PASSED
+--------------------------------------------------
+Input: 0b1111_0000
+Expected: True
+Actual: True
+Number Type: binary
+Test PASSED
+--------------------------------------------------
+Input: 1_234_567
+Expected: True
+Actual: True
+Number Type: decimal
+Test PASSED
+--------------------------------------------------
+Input: 3.14
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: -0.001
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: .5
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 0.0
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 1e-10
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 1.5e2
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: -2E-3
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 1.23e+4
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 1e0
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 3.141_592_653_589
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: 1_234.567_8
+Expected: True
+Actual: True
+Number Type: float
+Test PASSED
+--------------------------------------------------
+Input: inf
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: -inf
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: nan
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 0b2
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 0o9
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 0xG
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 1._5
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 1e
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: .e5
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 1.2e2.3
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: _42
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 42_
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 3__14
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 0b
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 0x
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: 0o
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: .
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------
+Input: e5
+Expected: False
+Actual: False
+Number Type: invalid
+Test PASSED
+--------------------------------------------------

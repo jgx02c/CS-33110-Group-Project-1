@@ -160,6 +160,8 @@ class NFA:
             return False, "invalid"
         if input_string.endswith('+') or input_string.endswith('-'):
             return False, "invalid"
+        if '._' in input_string or '_.' in input_string:
+            return False, "invalid"
             
         current_states = {'start'}
         
